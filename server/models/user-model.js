@@ -42,6 +42,10 @@ try{
 }
 });
 
+//compare with password
+userSchema.methods.comparePassword = async function (password) {
+    return  bcrypt.compare(password, this.password);
+}
 
 //json web token
 userSchema.methods.generateToken = function () {
