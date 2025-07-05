@@ -1,3 +1,7 @@
-export const Service = () =>{
-    return <h1>Hello services page</h1>
+export const Service = () => {
+  return (
+    <>
+     <h1>this is service page</h1>
+    </>
+  );
 };

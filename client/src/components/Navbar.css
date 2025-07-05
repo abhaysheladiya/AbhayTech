@@ -1,11 +1,104 @@
-.container{
-    max-width: 140rem;
-    padding: 4.2rem 2.4rem;
-    display: flex;
-    justify-content: space-between;
+/* Navbar Container */
+.container {
+  max-width: 1400px;
+  padding: 2rem 3rem; /* increased padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* stronger shadow */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-ul{
-    display: flex;
-    gap: 3.2rem;
+/* Navigation Links */
+ul {
+  display: flex;
+  gap: 2.5rem; /* increased gap */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600; /* increased weight */
+  font-size: 1.25rem; /* increased font size */
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 0.4rem;
+  position: relative;
+}
+
+/* Hover underline effect */
+ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px; /* thicker underline */
+  left: 0;
+  bottom: 0;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out;
+}
+
+ul li a:hover::after {
+  width: 100%;
+}
+
+ul li a:hover {
+  color: #007bff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  ul {
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  ul li a {
+    font-size: 1.1rem; /* adjusted for mobile */
+  }
+}
+
+
+.logo-brand a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007bff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo-brand a:hover {
+  color: #0056b3;
+  transform: scale(1.05);
+}
+
+.logo-brand a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out;
+}
+
+.logo-brand a:hover::after {
+  width: 100%;
 }
