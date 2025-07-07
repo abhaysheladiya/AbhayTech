@@ -1,4 +1,7 @@
+import { useAuth } from "../store/auth";
+
 export const About = () => {
+  const { user } = useAuth();
   return (
     <>
       <style>{`
@@ -29,6 +32,15 @@ export const About = () => {
           transform: translateY(30px);
           animation: slideUp 1s ease-out forwards;
         }
+
+        .welcome-heading {
+        font-size: 2.5rem;
+         font-weight: 600;
+         color: #007bff;
+        margin-bottom: 3rem;
+         text-align: center;
+         animation: fadeIn 1s ease-in-out;
+}
 
         /* Image Styling */
         .about-image img {
@@ -156,6 +168,7 @@ export const About = () => {
         }
       `}</style>
 
+      <h2 className="welcome-heading">Welcome, {user ? `${user.username}` : `to our website`}</h2>
       <section className="section-about">
         <div className="about-container">
           <div className="about-image">
@@ -164,14 +177,21 @@ export const About = () => {
 
           <div className="about-content">
             <h1 className="main-heading">About Me</h1>
-            <p className="subtitle">Crafting code with creativity and purpose.</p>
-            <p>
-              Hi, I'm <strong>Abhay</strong> — a full-stack web developer passionate about building clean, scalable, and impactful applications.
-              With a strong foundation in the MERN stack, I love exploring new technologies and sharing what I learn through this blog.
+            <p className="subtitle">
+              Crafting code with creativity and purpose.
             </p>
             <p>
-              Beyond coding, I believe in continuous learning, open-source contributions, and collaborating on meaningful projects.
-              This blog is my canvas — where thoughts meet technology and creativity meets code.
+              Hi, I'm <strong>Abhay</strong> — a full-stack web developer
+              passionate about building clean, scalable, and impactful
+              applications. With a strong foundation in the MERN stack, I love
+              exploring new technologies and sharing what I learn through this
+              blog.
+            </p>
+            <p>
+              Beyond coding, I believe in continuous learning, open-source
+              contributions, and collaborating on meaningful projects. This blog
+              is my canvas — where thoughts meet technology and creativity meets
+              code.
             </p>
           </div>
         </div>
