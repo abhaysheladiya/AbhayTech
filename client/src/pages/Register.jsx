@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -41,16 +42,18 @@ export const Register = () => {
         body: JSON.stringify(user),
       });
 
-      if (response.ok) {
         const res_data = await response.json();
-        console.log("res from server ", res_data);
+        console.log("res from server ", res_data.message);
+
+      if (response.ok) {
         //stire token in localhost
         storeTokenInLS(res_data.token);
-
         setUser({ username: "", email: "", phone: "", password: "" });
+        toast.success("Registration Successful");
         navigate("/login");
+      }else{
+        toast.error(res_data.extraDetails ? res_data.extraDetails : message);
       }
-      console.log(response);
 
     } catch (error) {
       console.log("register", error);
@@ -78,11 +81,11 @@ export const Register = () => {
 
                 <form onSubmit={handleSubmit}>
                   <div>
-                    <label htmlFor="username">username</label>
+                    <label htmlFor="username">Username</label>
                     <input
                       type="text"
                       name="username"
-                      placeholder="usernamr"
+                      placeholder="Enter username"
                       id="username"
                       required
                       autoComplete="off"
@@ -91,11 +94,11 @@ export const Register = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email">email</label>
+                    <label htmlFor="email">Email</label>
                     <input
                       type="email"
                       name="email"
-                      placeholder="enter email"
+                      placeholder="Enter email"
                       id="email"
                       required
                       autoComplete="off"
@@ -104,11 +107,11 @@ export const Register = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone">phone</label>
+                    <label htmlFor="phone">Phone</label>
                     <input
                       type="number"
                       name="phone"
-                      placeholder="enter phone"
+                      placeholder="Enter phone"
                       id="phone"
                       required
                       autoComplete="off"
@@ -117,11 +120,11 @@ export const Register = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="password">password</label>
+                    <label htmlFor="password">Password</label>
                     <input
                       type="password"
                       name="password"
-                      placeholder="enter password"
+                      placeholder="Enter password"
                       id="password"
                       required
                       autoComplete="off"

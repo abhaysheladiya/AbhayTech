@@ -2,6 +2,7 @@ import "./Login.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 const URL = "http://localhost:5000/api/auth/login";
 
@@ -37,16 +38,15 @@ export const Login = () =>{
 
             console.log("login form", response);
 
+        const res_data = await response.json();
           if(response.ok){
-            alert("Login Sucessfully");
-            const res_data = await response.json();
+            toast.success("Login Sucessfully");
             storeTokenInLS(res_data.token);
-
             setUser({ email: "", password: ""});
             navigate("/");
 
           }else{
-            alert("Invalid credentials");
+            toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
           }
 
         } catch (error) {
@@ -71,14 +71,14 @@ export const Login = () =>{
 
                             <form onSubmit={handleSubmit}>
                                 <div>
-                                    <label htmlFor="email">email</label>
-                                    <input type="email" name="email" placeholder="enter email" id="email" required autoComplete="off"
+                                    <label htmlFor="email">Email</label>
+                                    <input type="email" name="email" placeholder="Enter email" id="email" required autoComplete="off"
                                     value={user.email} onChange={handleInput} />
                                 </div>
                                
                                 <div>
-                                    <label htmlFor="password">password</label>
-                                    <input type="password" name="password" placeholder="enter password" id="password" required autoComplete="off" 
+                                    <label htmlFor="password">Password</label>
+                                    <input type="password" name="password" placeholder="Enter password" id="password" required autoComplete="off" 
                                     value={user.password} onChange={handleInput}/>
                                 </div>
 

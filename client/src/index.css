@@ -21,6 +21,12 @@ main {
   color: #333;
 }
 
+/* react tostify css*/
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
 /* Hero Section */
 .section-hero {
   display: flex;
