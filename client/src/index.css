@@ -113,3 +113,106 @@ main {
   font-size: 1rem;
   color: #555;
 }
+
+
+/** Admin-panel users data css*/
+/* Admin User Section - Light Dark Theme */
+.admin-user-section {
+  padding: 4rem 2rem;
+  background-color: #1e1e2f;  /* dark background */
+  color: #e0e0e0;             /* light text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-user-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+/* Table Container */
+.admin-user {
+  overflow-x: auto;
+}
+
+/* Table Styling */
+.admin-user table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a2a3c;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table Header */
+.admin-user th {
+  background-color: #3b3b52;
+  color: #ffffff;
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Table Body */
+.admin-user td {
+  padding: 1rem;
+  border-bottom: 1px solid #444;
+  font-size: 0.95rem;
+  color: #dcdcdc;
+}
+
+/* Row Hover */
+.admin-user tbody tr:hover {
+  background-color: #33334d;
+  cursor: pointer;
+}
+
+/* Action Cells */
+.admin-user td:nth-child(4),
+.admin-user td:nth-child(5) {
+  color: #70b8ff;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-user table,
+  .admin-user thead,
+  .admin-user tbody,
+  .admin-user th,
+  .admin-user td,
+  .admin-user tr {
+    display: block;
+  }
+
+  .admin-user tr {
+    margin-bottom: 1rem;
+    background-color: #2a2a3c;
+    border: 1px solid #555;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 1rem;
+  }
+
+  .admin-user td {
+    border: none;
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .admin-user td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem;
+    font-weight: bold;
+    color: #bbbbbb;
+  }
+
+  .admin-user th {
+    display: none;
+  }
+}
