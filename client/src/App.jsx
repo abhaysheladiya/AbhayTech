@@ -9,29 +9,37 @@ import { Navbar } from "./components/Navbar";
 import { Error } from "./pages/Error";
 import { Footer } from "./components/Footer";
 import { Logout } from "./pages/Logout";
+import { AdminLayout } from "./components/layouts/Admin-Layout";
+import { Adminusers } from "./pages/Admin-Users";
+import { AdminContacts } from "./pages/Admin-Contacts";
 
-const App = () =>{
-  return( 
-  <>
+const App = () => {
+  return (
+    <>
+      {/** This is browser web url */}
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="*" element={<Error />} />{" "}    {/** This is universal search show error */}
 
-  {/** This is browser web url */}
-  <BrowserRouter>  
-  <Navbar />
-  <Routes>
-    <Route path="/" element={<Home />}/>
-    <Route path="/about" element={<About />}/>
-    <Route path="/contact" element={<Contact />}/>
-    <Route path="/service" element={<Service />}/>
-    <Route path="/register" element={<Register />}/>
-    <Route path="/login" element={<Login />}/>
-    <Route path="/logout" element={<Logout />} />
-    <Route path="*" element={<Error />} />     {/** This is universal search show error */}
-  </Routes>
-  
-  < Footer />
-  </BrowserRouter>
-  </>
-  )
+          {/** Nested Routing */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="users" element={<Adminusers />} />
+            <Route path="contacts" element={<AdminContacts />} />
+          </Route>
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
+    </>
+  );
 };
 
 export default App;
