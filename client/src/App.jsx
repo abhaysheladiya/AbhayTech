@@ -12,6 +12,7 @@ import { Logout } from "./pages/Logout";
 import { AdminLayout } from "./components/layouts/Admin-Layout";
 import { Adminusers } from "./pages/Admin-Users";
 import { AdminContacts } from "./pages/Admin-Contacts";
+import EditUser from "./pages/Admin-Update";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           {/** Nested Routing */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="users" element={<Adminusers />} />
+            <Route path="users/:id/edit" element={<EditUser />} />
             <Route path="contacts" element={<AdminContacts />} />
           </Route>
         </Routes>
