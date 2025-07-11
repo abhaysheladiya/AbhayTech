@@ -233,3 +233,17 @@ main {
     display: none;
   }
 }
+
+.edit-link {
+  padding: 6px 12px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.edit-link:hover {
+  background-color: #45a049;
+}
