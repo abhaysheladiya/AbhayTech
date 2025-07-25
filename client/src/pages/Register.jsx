@@ -52,7 +52,7 @@ export const Register = () => {
         toast.success("Registration Successful");
         navigate("/");
       }else{
-        toast.error(res_data.extraDetails ? res_data.extraDetails : message);
+        toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }
 
     } catch (error) {

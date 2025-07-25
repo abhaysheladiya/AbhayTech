@@ -54,6 +54,10 @@ export const Home = () => {
               <h2>💻 10K+</h2>
               <p>Lines of Code</p>
             </div>
+            <div className="stat-box">
+              <h2>🛠️ GitHub</h2>
+              <p>click <a href="https://github.com/abhaysheladiya" target="_blank" rel="github">here</a></p>
+            </div>
           </div>
         </section>
       </main>
